@@ -1,18 +1,40 @@
-let myLibary = ["1977", "new moon", "art deco"];
-
-function Book() {
-   this.title = title
-   this.author = author
+let myLibary = [];
+//Object contructor
+function Book(title, author, pages, read) {
+   this.title = title;
+   this.author = author;
+   this.pages = pages;
+   this.read = read;
+   // this.info = function() {
+   //    return (`${title} ${author} ${pages} ${read}`)
+   // }
 }
 
-function addBookToLibary() {
-   let newBook = []
-  const title = document.getElementById("title").value;
-  
+function addBookToLibary(title, author, pages, read) {
+   let newBook = new Book(title, author, pages, read)
+ myLibary.push(newBook)
+ //console.log(newBook)
 
 }
+const theHobbit = addBookToLibary("The Hobbit", "J.R.R. Tolkien", 289, false);
+const theHobbit2 = addBookToLibary("The Hobbit 2", "J.R.R. Tolkien", 244, false);
 
-document.getElementById("books").innerHTML = myLibary
+function displayBooks() {
+   const books = document.querySelector(".books")
+   myLibary.forEach(myLibary => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      books.appendChild(card);
+      for (let key in myLibary) {
+         console.log(`${key}: ${myLibary[key]}`);
+         const para = document.createElement("p");
+         para.textContent = (`${key}: ${myLibary[key]}`)
+         card.appendChild(para)
+      }
+   })
+}
+displayBooks()
+// document.getElementById("books").innerHTML = myLibary[0].title
 
 
 
