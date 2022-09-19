@@ -5,9 +5,7 @@ function Book(title, author, pages, read) {
    this.author = author;
    this.pages = pages;
    this.read = read;
-   // this.info = function() {
-   //    return (`${title} ${author} ${pages} ${read}`)
-   // }
+
 }
 
 function addBookToLibary(title, author, pages, read) {
@@ -16,8 +14,7 @@ function addBookToLibary(title, author, pages, read) {
  //console.log(newBook)
 
 }
-const theHobbit = addBookToLibary("The Hobbit", "J.R.R. Tolkien", 289, false);
-const theHobbit2 = addBookToLibary("The Hobbit 2", "J.R.R. Tolkien", 244, false);
+
 
 function displayBooks() {
    const books = document.querySelector(".books")
@@ -33,7 +30,29 @@ function displayBooks() {
       }
    })
 }
-displayBooks()
+
+const theHobbit = addBookToLibary("The Hobbit", "J.R.R. Tolkien", 289, false);
+const theHobbit2 = addBookToLibary(
+    "The Hobbit 2",
+    "J.R.R. Tolkien",
+    244,
+    false
+);
+const theHobbit3 = addBookToLibary("The Hobbit", "J.R.R. Tolkien", 289, false);
+const theHobbit4 = addBookToLibary(
+    "The Hobbit 2",
+    "J.R.R. Tolkien",
+    244,
+    false
+);
+const theHobbit5 = addBookToLibary("The Hobbit", "J.R.R. Tolkien", 289, false);
+const theHobbit6 = addBookToLibary(
+    "The Hobbit 2",
+    "J.R.R. Tolkien",
+    244,
+    false
+);
+displayBooks();
 // document.getElementById("books").innerHTML = myLibary[0].title
 
 
