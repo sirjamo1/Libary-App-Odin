@@ -5,8 +5,10 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.id = Math.floor(Math.random() * 10000000);
 }
 
+console.log(Math.floor(Math.random() * 10000000));
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
@@ -27,6 +29,20 @@ function formData() {
         hideBookForm();
     }
 }
+function linkClickEvent(element) {
+    console.log($(element).closest("div").attr("id"));
+}
+function deleteBook(selectedId) {
+    const allBooks = document.querySelectorAll(".card");
+    for (let i = 0; i < allBooks.length; i++) {
+        let bookId = allBooks[i].getAttribute("id");
+      //   console.log(selectedId, parseInt(bookId));
+        if (selectedId === parseInt(bookId)) {
+            console.log(selectedId, parseInt(bookId));
+              allBooks[i].remove();
+        }
+    }
+}
 
 function showBookForm() {
     document.getElementById("book-form").style.display = "grid";
@@ -34,16 +50,30 @@ function showBookForm() {
 function hideBookForm() {
     document.getElementById("book-form").style.display = "none";
 }
+function hello() {
+    console.log("hello");
+}
 function displayBooks() {
     const books = document.querySelector(".books");
     const deleteDivs = document.querySelectorAll(".card");
-    console.log(deleteDivs);
     for (let i = 0; i < deleteDivs.length; i++) {
         deleteDivs[i].remove();
     }
     myLibrary.forEach((myLibrary) => {
         const card = document.createElement("div");
         card.classList.add("card");
+        card.setAttribute("id", myLibrary.id);
+        const deleteBtn = document.createElement("button");
+        deleteBtn.onclick = function () {
+            hello();
+            deleteBook(myLibrary.id);
+        };
+        deleteBtn.classList.add("book-delete-btn");
+
+        deleteBtn.textContent = "X";
+        card.appendChild(deleteBtn);
+
+        console.log(myLibrary.id);
         books.appendChild(card);
         for (let key in myLibrary) {
             console.log(`${key}: ${myLibrary[key]}`);
