@@ -10,29 +10,36 @@
     </head>
     <body>
         <div class="grid-container">
-            <div class="form-header"><h2>Add Book To Libary</h2></div>
-            <form class="book-form" action="">
-                <label for="title">Title</label
-                ><input id="title" type="text" /><label for="author"
-                    >Author</label
-                ><input id="author" type="text" />
-                <label for="pages">Pages</label>
-                <input type="number" name="pages" id="pages" />
-                <p>Read it?</p>
-                <label for="true">Yes</label
-                ><input type="radio" name="read" value="true" />
-                <label for="false">Not Yet</label
-                ><input type="radio" name="read" value="false" /><button
-                    type="submit"
-                    onclick="addBookToLibary(title, author, pages, read)"
-                >
-                    Submit
-                </button>
-            </form>
-            <div class="libary-header"><h2>Books In Libary</h2></div>
-            <div class="books">
-                
+            <div class="form-header"><h2>Add Book To Library</h2></div>
+            <div class="form-container">
+             <button class="add-book-btn" onclick="showBookForm()">Add New Book</button>
+                <form id="book-form" onsubmit="return false" style="display:none">
+                    <label for="title">Title</label
+                    ><input id="title" type="text" /><label for="author"
+                        >Author</label
+                    ><input id="author" type="text" />
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" />
+                    <p>Read it?</p>
+                    <div class="read-it">
+                        <label for="true">Yes</label
+                        ><input type="radio" name="read" id="true" value="true" />
+                    </div>
+                    <div class="read-it">
+                        <label for="false">Not Yet</label
+                        ><input type="radio" name="read" id="false" checked value="false"  />
+                    </div>
+                    <button
+                        type="submit"
+                        id="form-submit-btn"
+                        onclick="formData()"
+                    >
+                        Submit
+                    </button>
+                </form>
             </div>
+            <div class="library-header"><h2>Books In Library</h2></div>
+            <div class="books"></div>
         </div>
     </body>
     <script src="./object.js"></script>
