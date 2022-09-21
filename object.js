@@ -18,7 +18,7 @@ function formData() {
     let title = document.getElementById("title").value;
     let author = document.getElementById("author").value;
     let pages = document.getElementById("pages").value;
-    let read = document.getElementById("true").checked ? true : false;
+    let read = document.getElementById("true").checked ? "Yes" : "Not yet";
 
     if (title == "" || author == "" || pages == "") {
         return alert("please fill in all data");
@@ -35,7 +35,6 @@ function deleteBook(selectedId) {
     const allBooks = document.querySelectorAll(".card");
     for (let i = 0; i < allBooks.length; i++) {
         let bookId = allBooks[i].getAttribute("id");
-        //   console.log(selectedId, parseInt(bookId));
         if (selectedId === parseInt(bookId)) {
             console.log(selectedId, parseInt(bookId));
             allBooks[i].remove();
@@ -69,30 +68,35 @@ function displayBooks() {
         deleteBtn.textContent = "X";
         card.appendChild(deleteBtn);
         for (let key in myLibrary) {
-            console.log(`${key}: ${myLibrary[key]}`);
             const para = document.createElement("p");
-            if (key == "read") {
-            //   let btnText = myLibrary[key] == true ? "Change to Not yet" : "Change to Yes"
-               const readDiv = document.createElement("div")
-               readDiv.classList.add("readDiv")
-               card.appendChild(readDiv)
-               para.textContent = `${key}: ${myLibrary[key]}`;
-               readDiv.appendChild(para)
-               const readBtn = document.createElement("button");
-               readBtn.classList.add("readBtn")
-               readBtn.textContent =
-                   myLibrary[key] == true
-                       ? "Change to Not yet"
-                       : "Change to Yes";
-               readDiv.appendChild(readBtn)
-
+            if (key === "read") {
+                const readDiv = document.createElement("div");
+                readDiv.classList.add("readDiv");
+                card.appendChild(readDiv);
+                para.textContent = `${key}: ${myLibrary[key]}`;
+                readDiv.appendChild(para);
+                const readBtn = document.createElement("button");
+                readBtn.classList.add("readBtn");
+                readBtn.textContent =
+                    myLibrary[key] === "Yes"
+                        ? "Change to Not yet"
+                        : "Change to Yes";
+                readBtn.onclick = function () {
+                    myLibrary[key] =
+                        myLibrary[key] === "Not yet" ? "Yes" : "Not yet";
+                    readBtn.textContent =
+                        myLibrary[key] === "Not yet"
+                            ? "Change to Yes"
+                            : "Change to Not yet";
+                    displayBooks();
+                };
+                readDiv.appendChild(readBtn);
             } else {
-            para.textContent = `${key}: ${myLibrary[key]}`;
-            card.appendChild(para);
+                para.textContent = `${key}: ${myLibrary[key]}`;
+                card.appendChild(para);
             }
         }
     });
 }
 
 displayBooks();
-
