@@ -28,18 +28,15 @@ function formData() {
         hideBookForm();
     }
 }
-function linkClickEvent(element) {
-    console.log($(element).closest("div").attr("id"));
-}
+
 function deleteBook(selectedId) {
     const allBooks = document.querySelectorAll(".card");
-    for (let i = 0; i < allBooks.length; i++) {
-        let bookId = allBooks[i].getAttribute("id");
-        if (selectedId === parseInt(bookId)) {
-            console.log(selectedId, parseInt(bookId));
-            allBooks[i].remove();
-        }
+    console.log(myLibrary);
+    for (let i = 0; i < myLibrary.length; i++) {
+        console.log(myLibrary[i].id, i);
+        if (selectedId === myLibrary[i].id) myLibrary.splice(i, 1);
     }
+    displayBooks();
 }
 
 function showBookForm() {
@@ -60,23 +57,26 @@ function displayBooks() {
         books.appendChild(card);
         card.classList.add("card");
         card.setAttribute("id", myLibrary.id);
+        const deleteDiv = document.createElement("div");
+        deleteDiv.classList.add("book-delete-div");
+        card.appendChild(deleteDiv);
         const deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("book-delete-btn");
+        deleteBtn.textContent = "X";
         deleteBtn.onclick = function () {
             deleteBook(myLibrary.id);
         };
-        deleteBtn.classList.add("book-delete-btn");
-        deleteBtn.textContent = "X";
-        card.appendChild(deleteBtn);
+        deleteDiv.appendChild(deleteBtn);
         for (let key in myLibrary) {
             const para = document.createElement("p");
             if (key === "read") {
                 const readDiv = document.createElement("div");
-                readDiv.classList.add("readDiv");
+                readDiv.classList.add("read-div");
                 card.appendChild(readDiv);
                 para.textContent = `${key}: ${myLibrary[key]}`;
                 readDiv.appendChild(para);
                 const readBtn = document.createElement("button");
-                readBtn.classList.add("readBtn");
+                readBtn.classList.add("read-btn");
                 readBtn.textContent =
                     myLibrary[key] === "Yes"
                         ? "Change to Not yet"
