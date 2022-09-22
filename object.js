@@ -5,9 +5,11 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.id = Math.floor(Math.random() * 10000000);
+    this.id = idGenerator();
 }
-
+function idGenerator() {
+   return Math.floor(Math.random() * 10000000);
+}
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
@@ -98,5 +100,8 @@ function displayBooks() {
         }
     });
 }
+
+
+
 
 displayBooks();
