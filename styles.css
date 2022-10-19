@@ -16,7 +16,6 @@ button {
 
 input {
     width: 200px;
-
 }
 .grid-container {
     width: 100%;
@@ -41,7 +40,7 @@ input {
     z-index: 1;
 }
 .add-book-btn {
- width: 8rem;
+    width: 8rem;
 }
 form {
     display: flex;
@@ -81,32 +80,27 @@ form label {
 .card {
     display: grid;
     max-height: 20rem;
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 5% repeat(4, 1fr);
     background-color: cadetblue;
     border-radius: 6px;
     box-shadow: 0px 0px 6px 0px rgba(82, 80, 80, 0.75);
     -webkit-box-shadow: 0px 0px 6px 0px rgba(82, 80, 80, 0.75);
     -moz-box-shadow: 0px 0px 6px 0px rgba(82, 80, 80, 0.75);
-    
 }
 .book-delete-div {
- text-align: right;
- margin-right:  3px;
- margin-top: 3px;
+    text-align: right;
+    margin-right: 3px;
+    margin-top: 3px;
 }
 .book-delete-btn {
- width: 2rem;
- height: 2rem;
- background-color: red;
- font-size: 1rem;
- border-radius: 10px;
- 
- 
+    width: 2rem;
+    height: 2rem;
+    background-color: red;
+    font-size: 1rem;
+    border-radius: 10px;
 }
 
 .read-btn {
-width: 130px;
-
+    width: 130px;
 }
-
