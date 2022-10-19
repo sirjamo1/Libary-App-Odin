@@ -5,15 +5,22 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="./object.js"></script>
 
-        <title>Document</title>
+        <title>Library App</title>
     </head>
     <body>
         <div class="grid-container">
             <div class="form-header"><h2>Add Book To Library</h2></div>
             <div class="form-container">
-             <button class="add-book-btn" onclick="showBookForm()">Add New Book</button>
-                <form id="book-form" onsubmit="return false" style="display:none">
+                <button class="add-book-btn" onclick="showBookForm()">
+                    Add New Book
+                </button>
+                <form
+                    id="book-form"
+                    onsubmit="return false"
+                    style="display: none"
+                >
                     <label for="title">Title</label
                     ><input id="title" type="text" /><label for="author"
                         >Author</label
@@ -23,11 +30,22 @@
                     <p>Read it?</p>
                     <div class="read-it">
                         <label for="true">Yes</label
-                        ><input type="radio" name="read" id="true" value="true" />
+                        ><input
+                            type="radio"
+                            name="read"
+                            id="true"
+                            value="true"
+                        />
                     </div>
                     <div class="read-it">
                         <label for="false">Not Yet</label
-                        ><input type="radio" name="read" id="false" checked value="false"  />
+                        ><input
+                            type="radio"
+                            name="read"
+                            id="false"
+                            checked
+                            value="false"
+                        />
                     </div>
                     <button
                         type="submit"
@@ -42,5 +60,4 @@
             <div class="books"></div>
         </div>
     </body>
-    <script src="./object.js"></script>
 </html>
