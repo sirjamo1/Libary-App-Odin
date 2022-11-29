@@ -1,5 +1,4 @@
 let myLibrary = [];
-//replacing Object constructor with class constructor
 class Book {
     constructor(title, author, pages, read) {
         this.title = title;
@@ -9,14 +8,7 @@ class Book {
         this.id = idGenerator();
     }
 }
-//Object constructor
-// function Book(title, author, pages, read) {
-// this.title = title;
-// this.author = author;
-// this.pages = pages;
-// this.read = read;
-// this.id = idGenerator();
-// }
+
 function idGenerator() {
     return Math.floor(Math.random() * 10000000);
 }
@@ -115,58 +107,3 @@ function displayBooks() {
 
 displayBooks();
 
-//THE BELOW WAS PART OF THE ODIN PROJECT THEORY
-// const Player = (name, level) => {
-//     let health = level * 2;
-//     const getLevel = () => level;
-//     const getName = () => name;
-//     const getHealth = () => health
-//     const die = () => {
-//         console.log(`${name} died`)
-//     };
-//     const damage = (x) => {
-//         health -= x;
-//         if (health <= 0) {
-//             die();
-//         }
-//     };
-//     const attack = (enemy) => {
-//         if (level < enemy.getLevel()) {
-//             damage(1);
-//             console.log(`${enemy.getName()} has damaged ${name}`);
-//         }
-//         if (level >= enemy.getLevel()) {
-//             enemy.damage(1);
-//             console.log(`${name} has damaged ${enemy.getName()}`);
-//         }
-//     };
-//     return { attack, damage, getLevel, getName, getHealth};
-// };
-
-// const jimmie = Player("jim", 10);
-// const badGuy = Player("jeff", 5);
-// //console.log(badGuy.health);
-// //console.log(jimmie.attack(badGuy));
-// //console.log(badGuy.getHealth());
-
-// const Person = (name) => {
-//   const sayName = () => console.log(`my name is ${name}`);
-//   return {sayName};
-// }
-
-// // const Nerd = (name) => {
-// //   // simply create a person and pull out the sayName function with destructuring assignment syntax!
-// //   const {sayName} = Person(name);
-// //   const doSomethingNerdy = () => console.log('nerd stuff');
-// //   return {sayName, doSomethingNerdy};
-// // }
-// const Nerd = (name) => {
-//     const prototype = Person(name);
-//     const doSomethingNerdy = () => console.log("nerd stuff");
-//     return Object.assign({}, prototype, { doSomethingNerdy });
-// };
-
-// const jeff = Nerd('jeff');
-
-// jeff.sayName(); //my name is jeff
-// jeff.doSomethingNerdy(); // nerd stuff
