@@ -1,35 +1,29 @@
-
-
-
-
-
-
 let myLibrary = [];
 //replacing Object constructor with class constructor
 class Book {
-    constructor({ title, author, pages, read}) {
-            this.title = document.getElementById("title").value;
-            this.author = document.getElementById("author").value;
-            this.pages = document.getElementById("pages").value;
-            this.read = document.getElementById("true").checked
-                ? "Yes"
-                : "Not yet";
-            this.id = idGenerator();
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read ? "Yes" : "Not yet";
+        this.id = idGenerator();
     }
 }
 //Object constructor
 // function Book(title, author, pages, read) {
-    // this.title = title;
-    // this.author = author;
-    // this.pages = pages;
-    // this.read = read;
-    // this.id = idGenerator();
+// this.title = title;
+// this.author = author;
+// this.pages = pages;
+// this.read = read;
+// this.id = idGenerator();
 // }
 function idGenerator() {
     return Math.floor(Math.random() * 10000000);
 }
 function addBookToLibrary(title, author, pages, read) {
+    console.log(title, pages);
     let newBook = new Book(title, author, pages, read);
+    console.log(newBook);
     myLibrary.push(newBook);
     displayBooks();
 }
