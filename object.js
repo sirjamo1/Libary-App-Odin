@@ -27,7 +27,7 @@ function formData() {
     let read = document.getElementById("true").checked ? "Yes" : "Not yet";
 
     if (title == "" || author == "" || pages == "") {
-        return alert("please fill in all data");
+        return console.log("please fill in all data");
     } else {
         addBookToLibrary(title, author, pages, read);
         document.getElementById("book-form").reset();
